@@ -9,6 +9,7 @@ articles_type = input()
 cwd = os.getcwd()
 # print(cwd)
 
+
 def save_article_on_page(the_article_type, dir_name, url):
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
@@ -20,8 +21,8 @@ def save_article_on_page(the_article_type, dir_name, url):
             title = i.find('a', {'data-track-label': "link"}).text
             name = title.strip().translate(str.maketrans(" ", "_", string.punctuation)) + ".txt"
             title_news.append(name)
-            urla = f"https://www.nature.com{i.a.get('href')}"
-            r2 = requests.get(urla)
+            url = f"https://www.nature.com{i.a.get('href')}"
+            r2 = requests.get(url)
             soup2 = BeautifulSoup(r2.content, 'html.parser')
             article_body = soup2.find('div', {'class': 'c-article-body'}).text.strip()
             file = open(dir_name + '\\' + name, 'w', encoding='UTF-8')
