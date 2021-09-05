@@ -58,47 +58,6 @@ if __name__ == "__main__":
     main()
 
 
-# def save_article_on_page(article_type, dir_name, url):
-#     if not os.path.exists(dir_name):
-#         os.mkdir(dir_name)
-#     title_news = []
-#     r = requests.get(url)
-#     soup = BeautifulSoup(r.content, 'html.parser')
-#     for i in soup.find_all('article'):
-#         span = i.find('span', {"class": "c-meta__type"}).text
-#         if span == article_type:
-#             title = i.find('a', {'data-track-label': "link"}).text
-#             name = title.strip().translate(str.maketrans(" ", "_", string.punctuation)) + ".txt"
-#             title_news.append(name)
-#             link = 'https://www.nature.com' + i.find('a')['href']
-#             r2 = requests.get(link)
-#             soup2 = BeautifulSoup(r2.content, 'html.parser')
-#             article_body = soup2.find('div', {'class': ['c-article-body', 'article-item__body', 'article']})
-#
-#             if article_body is not None:
-#                 body = article_body.text.strip()
-#                 file = open(dir_name + '\\' + name, 'w', encoding='UTF-8')
-#                 file.write(body)
-#                 print('File written')
-#                 file.close()
-#             else:
-#                 print('Empty article body')
-#
-#             # body = article_body.text.strip()
-#             # file = open(dir_name + '\\' + name, 'w', encoding='UTF-8')
-#             # file.write(body)
-#             # print('File written')
-#             # file.close()
-#
-#
-# for n in range(page):
-#     dir_name = f'Page_{n + 1}'
-#     url = f'https://www.nature.com/nature/articles?searchType=journalSearch&sort=PubDate&Page={n + 1}'
-#     save_article_on_page(article_type, dir_name, url)
-# print("Saved all articles.")
-#
-# #Correspondence
-
 
 
 
